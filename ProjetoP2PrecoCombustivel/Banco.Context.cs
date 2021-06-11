@@ -13,10 +13,10 @@ namespace ProjetoP2PrecoCombustivel
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class db_valor_combustivelEntities3 : DbContext
+    public partial class db_valor_combustivelEntities : DbContext
     {
-        public db_valor_combustivelEntities3()
-            : base("name=db_valor_combustivelEntities3")
+        public db_valor_combustivelEntities()
+            : base("name=db_valor_combustivelEntities")
         {
         }
     
@@ -25,6 +25,8 @@ namespace ProjetoP2PrecoCombustivel
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<TB_ESTADO> TB_ESTADO { get; set; }
         public virtual DbSet<TB_ESTADO_COMBUSTIVEL> TB_ESTADO_COMBUSTIVEL { get; set; }
+        public virtual DbSet<TB_MELHOR_COMBUSTIVEL_VALOR> TB_MELHOR_COMBUSTIVEL_VALOR { get; set; }
     }
 }

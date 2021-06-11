@@ -106,6 +106,8 @@
     </Content>
     <Content Include="Combustivel.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="Estado.aspx" />
+    <Content Include="MelhorCombustivel.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -138,6 +140,20 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Estado.aspx.cs">
+      <DependentUpon>Estado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Estado.aspx.designer.cs">
+      <DependentUpon>Estado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MelhorCombustivel.aspx.cs">
+      <DependentUpon>MelhorCombustivel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MelhorCombustivel.aspx.designer.cs">
+      <DependentUpon>MelhorCombustivel.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Principal.Master.cs">
       <DependentUpon>Principal.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -146,7 +162,13 @@
       <DependentUpon>Principal.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TB_ESTADO.cs">
+      <DependentUpon>Banco.tt</DependentUpon>
+    </Compile>
     <Compile Include="TB_ESTADO_COMBUSTIVEL.cs">
+      <DependentUpon>Banco.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TB_MELHOR_COMBUSTIVEL_VALOR.cs">
       <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
   </ItemGroup>

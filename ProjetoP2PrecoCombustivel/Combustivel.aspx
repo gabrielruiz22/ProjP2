@@ -14,24 +14,24 @@
                 <article class="kanban-entry grab" id="item1" draggable="true">
                     <div class="kanban-entry-inner">
                         <div class="kanban-label">
-                            <h2><a href="#" style="padding:12px">Cadastro Combustivel</a> <span></span></h2>
+                            <h2><a href="#" style="padding:12px">Cadastro Valor Combustivel</a> <span></span></h2>
                             <p></p>
                         </div>
                     </div>
                 </article>
                 <div class="form-group col-md-5">
-                    <label for="descricao">Informe o nome do estado</label>
-                    <asp:TextBox class="form-control" name="txtNomeCliente" ID="TxtNomePosto"
-                        runat="server" placeholder="Informe o nome do estado"></asp:TextBox>
+                    <label for="descricao">Informe o ID do estado</label>
+                    <asp:TextBox class="form-control" ID="TxtIDEstado"
+                        runat="server" placeholder="Informe o ID do estado"></asp:TextBox>
                 </div>
                 <div class="form-group col-md-5">
                     <label for="descricao">Informe o valor do alcool</label>
-                    <asp:TextBox class="form-control" name="txtNomeCliente" ID="txtValorAlcool"
+                    <asp:TextBox class="form-control" ID="txtValorAlcool"
                         runat="server" placeholder="Informe o valor do alcool"></asp:TextBox>
                 </div>
                 <div class="form-group col-md-5">
                     <label for="descricao">Informe o valor da gasolina</label>
-                    <asp:TextBox class="form-control" name="txtNomeCliente" ID="TxtValorGasolina"
+                    <asp:TextBox class="form-control" ID="TxtValorGasolina"
                         runat="server" placeholder="Informe o valor da gasolina"></asp:TextBox>
                 </div>
                 <div class="form-group col-md-5" style="padding:22px"> 

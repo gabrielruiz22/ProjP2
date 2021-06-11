@@ -30,7 +30,9 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="Combustivel.aspx"> Cadastro Posto/Combustivel</a></li>
+                    <li><a href="Combustivel.aspx"> Cadastro Valor Combustivel</a></li>
+                    <li><a href="Estado.aspx"> Cadastro Estado</a></li>
+                    <li><a href="MelhorCombustivel.aspx"> Cadastro Melhor Combustivel Por Estado</a></li>
                 </ul>
             </div>
         </div>

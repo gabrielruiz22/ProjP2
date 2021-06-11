@@ -12,11 +12,10 @@ namespace ProjetoP2PrecoCombustivel
     using System;
     using System.Collections.Generic;
     
-    public partial class TB_ESTADO_COMBUSTIVEL
+    public partial class TB_MELHOR_COMBUSTIVEL_VALOR
     {
         public int ID { get; set; }
-        public Nullable<decimal> valorEtanol { get; set; }
-        public Nullable<decimal> valorGasolina { get; set; }
+        public string tipoCombustivel { get; set; }
         public Nullable<int> id_estado { get; set; }
     
         public virtual TB_ESTADO TB_ESTADO { get; set; }

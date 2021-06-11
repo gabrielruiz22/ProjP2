@@ -39,12 +39,10 @@
         </div>
         <!-- /.modal-dialog -->
     </div>
-    <div> Grafico mostrando a tabela "valor"
-       
-    </div>
-    <asp:Chart ID="Chart1" runat="server" DataSourceID="SqlDataSource1">
+   <h4>Etanol</h4>
+    <asp:Chart ID="Chart1" runat="server" DataSourceID="SqlDataSource1" >
         <Series>
-            <asp:Series Name="Series1" XValueMember="nomeEstado" YValueMembers="valorEtanol">
+            <asp:Series Name="Series1" XValueMember="id_estado" YValueMembers="valorEtanol">
             </asp:Series>
         </Series>
         <ChartAreas>
@@ -52,10 +50,11 @@
             </asp:ChartArea>
         </ChartAreas>
     </asp:Chart>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:db_valor_combustivelConnectionString %>" SelectCommand="SELECT * FROM [TB_ESTADO_COMBUSTIVEL]"></asp:SqlDataSource>
-        <asp:Chart ID="Chart2" runat="server" DataSourceID="SqlDataSource1">
+         <h4>Gasolina</h4>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:db_valor_combustivelConnectionString2 %>" SelectCommand="SELECT * FROM [TB_ESTADO_COMBUSTIVEL]"></asp:SqlDataSource>
+        <asp:Chart ID="Chart2" runat="server" DataSourceID="SqlDataSource1" >
             <Series>
-                <asp:Series Name="Series1" XValueMember="nomeEstado" YValueMembers="valorGasolina">
+                <asp:Series Name="Series1" XValueMember="id_estado" YValueMembers="valorGasolina">
                 </asp:Series>
             </Series>
             <ChartAreas>
@@ -63,6 +62,5 @@
                 </asp:ChartArea>
             </ChartAreas>
         </asp:Chart>
-        <asp:Label ID="LblMsg" runat="server"></asp:Label>
 </form>
 </asp:Content>

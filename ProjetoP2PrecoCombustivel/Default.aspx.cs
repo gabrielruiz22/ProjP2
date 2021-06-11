@@ -15,45 +15,64 @@ namespace ProjetoP2PrecoCombustivel
             dadosPlanilha();
         }
 
-        protected void GVViagem_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         protected void dadosPlanilha()
         {
-            var xls = new XLWorkbook(@"C:\Users\gabri\Desktop\Nova pasta\Nova pasta\ProjP2\DadosCombustivel.xlsx");
+            var xls = new XLWorkbook(@"DadosCombustivel.xlsx");
             var planilha = xls.Worksheets.First(w => w.Name == "LER");
             var totalLinhas = planilha.Rows().Count();
             // primeira linha é o cabecalho
             for (int l = 2; l <= totalLinhas; l++)
             {
-                var estado = planilha.Cell($"A{l}").Value.ToString();
-                var valorEtanol = planilha.Cell($"B{l}").Value.ToString();
-                var valorGasolina = planilha.Cell($"C{l}").Value.ToString();
-                LblMsg.Text = estado;
-                inserirDados(estado, valorEtanol, valorGasolina);
+                var idEstado = planilha.Cell($"A{l}").Value.ToString();
+                var nomeEstado = planilha.Cell($"B{l}").Value.ToString();
+                var valorEtanol = planilha.Cell($"C{l}").Value.ToString();
+                var valorGasolina = planilha.Cell($"D{l}").Value.ToString();
+
+                if (idEstado != null && idEstado != "")
+                {
+                    inserirDadosTBEstado(nomeEstado);
+                    inserirDadosTBCombustivel(idEstado, valorEtanol, valorGasolina);
+                }
+                
             }
            
         }
 
-        protected void inserirDados(string estado, string valorE, string valorG)
+        protected void inserirDadosTBCombustivel(string estado, string valorE, string valorG)
         {
             TB_ESTADO_COMBUSTIVEL valorCombustivelEstado = new TB_ESTADO_COMBUSTIVEL()
             {
-                nomeEstado = estado,
+                id_estado = int.Parse(estado),
                 valorEtanol = decimal.Parse(valorE),
                 valorGasolina = decimal.Parse(valorG)
             };
 
-            db_valor_combustivelEntities3 contextCombustivel = new db_valor_combustivelEntities3();
+            db_valor_combustivelEntities contextCombustivel = new db_valor_combustivelEntities();
             contextCombustivel.TB_ESTADO_COMBUSTIVEL.Add(valorCombustivelEstado);
             contextCombustivel.SaveChanges();
+        }
+
+        protected void inserirDadosTBEstado(string auxEstado)
+        {
+            TB_ESTADO estado = new TB_ESTADO()
+            {
+                nomeEstado = auxEstado,
+            };
+
+            db_valor_combustivelEntities contextEstado = new db_valor_combustivelEntities();
+            contextEstado.TB_ESTADO.Add(estado);
+            contextEstado.SaveChanges();
         }
 
         protected void Chart1_Load(object sender, EventArgs e)
         {
 
         }
+        protected void GVViagem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

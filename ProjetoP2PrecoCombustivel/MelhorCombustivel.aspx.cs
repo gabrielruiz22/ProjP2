@@ -7,45 +7,36 @@ using System.Web.UI.WebControls;
 
 namespace ProjetoP2PrecoCombustivel
 {
-    public partial class Combustivel : System.Web.UI.Page
+    public partial class MelhorCombustivel : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         protected void btnCadastrar_Click(object sender, EventArgs e)
         {
             int idEstado = int.Parse(TxtIDEstado.Text);
-            decimal valorAlcool = decimal.Parse(txtValorAlcool.Text);
-            decimal valorGasolina = decimal.Parse(TxtValorGasolina.Text);
-           
-            db_valor_combustivelEntities contextCombustivel = new db_valor_combustivelEntities();
+            string tipoCombustivel2 = TxtTipoCombustivel.Text;
 
-            TB_ESTADO_COMBUSTIVEL valorCombustivelEstado = new TB_ESTADO_COMBUSTIVEL()
+            TB_MELHOR_COMBUSTIVEL_VALOR melhorCombustivelEstado = new TB_MELHOR_COMBUSTIVEL_VALOR()
             {
-                //falta o id do estado
                 id_estado = idEstado,
-                valorEtanol = valorAlcool,
-                valorGasolina = valorGasolina,
+                tipoCombustivel = tipoCombustivel2
             };
+
+            db_valor_combustivelEntities contextTipoCombustivel = new db_valor_combustivelEntities();
 
             string valor = Request.QueryString["idItem"];
 
             if (String.IsNullOrEmpty(valor))
             {
-                contextCombustivel.TB_ESTADO_COMBUSTIVEL.Add(valorCombustivelEstado);
+                contextTipoCombustivel.TB_MELHOR_COMBUSTIVEL_VALOR.Add(melhorCombustivelEstado);
                 lblmsg.Text = "Registro Inserido!";
                 Clear();
             }
-            contextCombustivel.SaveChanges();
+            contextTipoCombustivel.SaveChanges();
         }
 
         private void Clear()
         {
             TxtIDEstado.Text = "";
-            txtValorAlcool.Text = "";
-            TxtValorGasolina.Text = "";
+            TxtTipoCombustivel.Text = "";
             TxtIDEstado.Focus();
         }
 
@@ -53,6 +44,6 @@ namespace ProjetoP2PrecoCombustivel
         {
             Clear();
         }
-      
+
     }
 }
